@@ -1,0 +1,8 @@
+# Wokwi Library List
+# Voir https://docs.wokwi.com/guides/libraries
+
+MFRC522
+Adafruit SSD1306
+Adafruit GFX Library
+ESP32Servo
+Keypad

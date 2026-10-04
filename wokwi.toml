@@ -1,0 +1,9 @@
+[wokwi]
+version = 1
+firmware = '.pio/build/esp32dev/firmware.bin'
+elf = '.pio/build/esp32dev/firmware.elf'
+
+# Tableau de bord : http://localhost:8180 -> port 80 de l'ESP32 simule
+[[net.forward]]
+from = "localhost:8180"
+to = "target:80"

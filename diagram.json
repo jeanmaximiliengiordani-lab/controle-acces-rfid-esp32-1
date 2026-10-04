@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Jeanmaximilien Giordani",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 73.8, "left": 233.2, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -230.4, "left": 427.24, "attrs": {} },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 121.5,
+      "left": 835.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -328.4,
+      "left": -71.2,
+      "attrs": {}
+    },
+    { "type": "board-mfrc522", "id": "rfid1", "top": -252.25, "left": 857.84, "attrs": {} },
+    { "type": "wokwi-microsd-card", "id": "sd1", "top": -364.57, "left": 499.27, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -44.86,
+      "left": 931.43,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.3", "bb1:tn.32", "black", [ "h48", "v124.8" ] ],
+    [ "oled1:GND", "bb1:tn.50", "black", [ "v-19.2", "h-86.4", "v153.7" ] ],
+    [ "bb1:tn.48", "servo1:GND", "black", [ "v-38.5", "h114.4" ] ],
+    [ "servo1:PWM", "servo1:V+", "green", [ "v0" ] ],
+    [ "esp:3V3", "bb1:tp.3", "red", [ "h-134.25", "v287.7" ] ],
+    [ "rfid1:3.3V", "bb1:tp.40", "red", [ "h0" ] ],
+    [ "rfid1:GND", "bb1:tn.38", "black", [ "h-153.6" ] ],
+    [ "servo1:V+", "esp:5V", "red", [ "v-67.2", "h-432.1", "v-67.2" ] ],
+    [ "servo1:PWM", "esp:13", "orange", [ "v-48", "h-509", "v-115.2" ] ],
+    [ "oled1:SDA", "esp:4", "white", [ "v-57.6", "h38.47" ] ],
+    [ "oled1:VCC", "bb1:tp.42", "red", [ "v-28.8", "h-143.85" ] ],
+    [ "rfid1:RST", "esp:22", "green", [ "h-230.4", "v-38.4" ] ],
+    [ "rfid1:MISO", "esp:19", "blue", [ "h-249.6", "v38.4" ] ],
+    [ "rfid1:MOSI", "esp:23", "cyan", [ "h-220.8", "v-9.6" ] ],
+    [ "rfid1:SCK", "esp:18", "purple", [ "h-192", "v67.2" ] ],
+    [ "esp:21", "rfid1:SDA", "yellow", [ "h67.2", "v-48" ] ],
+    [ "sd1:VCC", "bb1:tp.35", "red", [ "h86.4", "v9.74" ] ],
+    [ "sd1:GND", "bb1:tn.36", "black", [ "h105.6", "v9.71" ] ],
+    [ "sd1:CS", "esp:5", "white", [ "h28.8", "v0.06" ] ],
+    [ "sd1:SCK", "esp:18", "purple", [ "h96", "v191.99" ] ],
+    [ "sd1:DI", "esp:23", "cyan", [ "h67.2", "v105.51" ] ],
+    [ "oled1:SCL", "esp:15", "green", [ "v-38.4", "h-335.7", "v9.6" ] ],
+    [ "esp:32", "keypad1:C4", "cyan", [ "h-230.25", "v211.2", "h9.6" ] ],
+    [ "esp:33", "keypad1:C3", "green", [ "h-230.25", "v201.6", "h-134.25" ] ],
+    [ "esp:25", "keypad1:C2", "yellow", [ "h-230.25", "v192", "h-144" ] ],
+    [ "keypad1:C1", "esp:26", "purple", [ "v28.8", "h153.5", "v-182.4" ] ],
+    [ "esp:27", "keypad1:R4", "white", [ "h-230.25", "v172.8", "h-163" ] ],
+    [ "esp:14", "keypad1:R3", "blue", [ "h-230.25", "v163.2", "h-172.5" ] ],
+    [ "sd1:DO", "esp:19", "blue", [ "h115.2", "v0.11" ] ],
+    [ "keypad1:R2", "esp:16", "gray", [ "v28.8", "h546.8", "v-163.2", "h-9.6" ] ],
+    [ "esp:17", "keypad1:R1", "#8f4814", [ "h57.6", "v172.8", "h-576" ] ]
+  ],
+  "dependencies": {}
+}
